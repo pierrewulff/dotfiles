@@ -179,5 +179,8 @@ defaults write com.apple.QuickTimePlayerX NSQuitAlwaysKeepsWindows -int NO
 defaults write com.apple.Safari NSQuitAlwaysKeepsWindows -int NO
 defaults write com.apple.Terminal NSQuitAlwaysKeepsWindows -int NO
 
+# Set menubar clock to user 24H-format.
+defaults write com.apple.MenuBarClock Use24HourClock -bool true
+
 # Kill affected applications
 for app in Safari Finder Dock Mail; do killall "$app"; done
