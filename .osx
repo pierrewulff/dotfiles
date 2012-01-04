@@ -184,3 +184,30 @@ defaults write com.apple.MenuBarClock Use24HourClock -bool true
 
 # Kill affected applications
 for app in Safari Finder Dock Mail; do killall "$app"; done
+
+#Sets trackpad to an resonable speed.
+defaults write -g com.apple.trackpad.scaling 1.5
+
+#Add Application to OSX Dock (example uses Calculator.app) defaults write com.apple.dock persistent-apps -array-add "< dict><key>tile-data</key><dict><key> file-data</key><dict><key>_CFURLString </key><string>/Applications/Calculator.app/</string><key>_CFURLStringType</key><integer>0 </integer></dict></dict></dict>";
+
+#Disable the OSX Crash Reporter defaults write com.apple.CrashReporter DialogType none
+
+#Add Recent Applications Stack to the Dock defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
+
+#Reduce Safari Rendering delay
+defaults write com.apple.Safari WebKitInitialTimedLayoutDelay 0.25
+
+#Increase animation speed of sheets
+defaults write NSGlobalDomain NSWindowResizeTime .001
+
+#To change the login clock to 24h
+sudo defaults write /Library/Preferences/.GlobalPreferences AppleLocale "no_NO"
+
+#To change the lock screen clock to 24h
+sudo defaults write /var/root/Library/Preferences/.GlobalPreferences AppleLocale "no_NO"
+
+defaults write com.apple.MenuBarClock Use24HourClock -bool true
+
+say "I'm done setting up your Macbook Pro, please restart it"
+
+~/Library/Preferences/ByHost/.GlobalPreferences[blah blah].plist
